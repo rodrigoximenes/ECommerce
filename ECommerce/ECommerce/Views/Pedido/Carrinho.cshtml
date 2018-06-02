@@ -14,10 +14,15 @@
                 Preço Unitário
             </div>
             <div class="col-md-2">
-                Quantidade
+                <span class="pull-right">
+                    Quantidade
+                </span>
             </div>
             <div class="col-md-2">
-                Subtotal
+                <span class="pull-right">
+                    Subtotal
+                </span>
+
             </div>
         </div>
     </div>
@@ -26,8 +31,16 @@
             <div class="col-md-3"><img src="~/images/espanha.png" /></div>
             <div class="col-md-3">Espanha</div>
             <div class="col-md-2">R$ 159,90</div>
-            <div class="col-md-2">1</div>
-            <div class="col-md-2">R$ 159,90</div>
+            <div class="col-md-2">
+                <span class="pull-right">
+                    1
+                </span>
+            </div>
+            <div class="col-md-2">
+                <span class="pull-right">
+                    R$ 159,90
+                </span>
+            </div>
         </div>
     </div>
     <div class="panel-footer">
@@ -39,5 +52,10 @@
                 R$ --,--
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @Html.ActionLink("Finalizar Pedido", "resumo", "pedido", null, new { @class = "btn btn-success pull-right" })
     </div>
 </div>
