@@ -10,110 +10,55 @@
         <!-- 1º slide -->
         <div class="item active">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <img src="~/images/espanha.png" />
-                        </div>
-                        <div class="panel-footer">
-                            <div>Camisa Espanha</div>
-                            <div>R$ 159,90</div>
-                            <div class="text-center">
-                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <img src="~/images/suecia.png" />
-                        </div>
-                        <div class="panel-footer">
-                            <div>Camisa Suécia</div>
-                            <div>R$ 129,90</div>
-                            <div class="text-center">
-                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
+                @for (int i = 0; i < 3; i++)
+                {
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/croacia.png" />
+                                <img src="~/images/camisa_@(i+1).png" />
                             </div>
                             <div class="panel-footer">
-                                <div>Camisa Croácia</div>
-                                <div>R$ 139,90</div>
+                                <div>Produto @(i + 1)</div>
+                                <div>R$ 159,90</div>
                                 <div class="text-center">
-                                    @Html.ActionLink("Adicionar", "carrinho", "pedido")
+                                    <a asp-controller="pedido" asp-action="carrinho">Adicionar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
         <!-- 2º slide -->
         <div class="item">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <img src="~/images/islandia.jpg" />
-                        </div>
-                        <div class="panel-footer">
-                            <div>Camisa Islândia</div>
-                            <div>R$ 129,90</div>
-                            <div class="text-center">
-                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <img src="~/images/panama.png" />
-                        </div>
-                        <div class="panel-footer">
-                            <div>Camisa México</div>
-                            <div>R$ 139,90</div>
-                            <div class="text-center">
-                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
+                @for (int i = 4; i < 7; i++)
+                {
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/russia.png" />
+                                <img src="~/images/camisa_@(i).png" />
                             </div>
                             <div class="panel-footer">
-                                <div>Camisa Rússia</div>
-                                <div>R$ 129,90</div>
+                                <div>Produto @(i)</div>
+                                <div>R$ 159,90</div>
                                 <div class="text-center">
-                                    @Html.ActionLink("Adicionar", "carrinho", "pedido")
+                                    <a asp-controller="pedido" asp-action="carrinho">Adicionar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
-    </div>
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#my-carousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#my-carousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#my-carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#my-carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
