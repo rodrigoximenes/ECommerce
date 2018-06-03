@@ -15,11 +15,11 @@
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/camisa_@(i+1).png" />
+                                <img src="~/images/camisa_@(Model[i+1].Id).png" />
                             </div>
                             <div class="panel-footer">
-                                <div>Produto @(i + 1)</div>
-                                <div>R$ 159,90</div>
+                                <div>@(Model[i + 1].Nome)</div>
+                                <div>@(Model[i + 1].Preco)</div>
                                 <div class="text-center">
                                     <a asp-controller="pedido" asp-action="carrinho">Adicionar</a>
                                 </div>
