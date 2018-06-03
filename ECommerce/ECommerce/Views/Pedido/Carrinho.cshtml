@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Carrinho";
 }
+@model List<ItemPedido>
 
 <h3>Meu Carrinho</h3>
 
@@ -27,21 +28,28 @@
         </div>
     </div>
     <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3"><img src="~/images/espanha.png" /></div>
-            <div class="col-md-3">Espanha</div>
-            <div class="col-md-2">R$ 159,90</div>
-            <div class="col-md-2">
-                <span class="pull-right">
-                    1
-                </span>
-            </div>
-            <div class="col-md-2">
-                <span class="pull-right">
-                    R$ 159,90
-                </span>
-            </div>
-        </div>
+        @{
+            foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="~/images/camisa_@(item.Id).png" />
+                    </div>
+                    <div class="col-md-3">@item.Produto.Nome</div>
+                    <div class="col-md-2">@item.Produto.Preco</div>
+                    <div class="col-md-2">
+                        <span class="pull-right">
+                            @item.Quantidade
+                        </span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="pull-right">
+                           R$ @item.SubTotal
+                        </span>
+                    </div>
+                </div>
+            }
+        }
     </div>
     <div class="panel-footer">
         <div class="row">
@@ -49,13 +57,15 @@
                 Total:
             </div>
             <div class="col-md-2">
-                R$ --,--
+                <span class="pull-right">
+                    R$ @Model.Sum(x => x.SubTotal)
+                </span>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <a asp-controller="pedido" asp-action="resumo" class = "btn btn-success pull-right">Finalizar Pedido</a>
+        <a asp-controller="pedido" asp-action="resumo" class="btn btn-success pull-right">Finalizar Pedido</a>
     </div>
 </div>
