@@ -24,17 +24,21 @@ namespace ECommerce.Controllers
 
         public IActionResult Carrinho()
         {
+            CarrinhoViewModel carrinhoViewModel = GetCarrinhoViewModel();
 
+            return View(carrinhoViewModel);
+        }
+
+        private CarrinhoViewModel GetCarrinhoViewModel()
+        {
             var itensCarrinho = new List<ItemPedido>
             {
                 new ItemPedido(1, produtos[0], 1),
                 new ItemPedido(2, produtos[1], 2)
-
         };
 
             var carrinhoViewModel = new CarrinhoViewModel(itensCarrinho);
-
-            return View(carrinhoViewModel);
+            return carrinhoViewModel;
         }
 
         public IActionResult Cadastro()
@@ -44,7 +48,9 @@ namespace ECommerce.Controllers
 
         public IActionResult Resumo()
         {
-            return View();
+            CarrinhoViewModel carrinhoViewModel = GetCarrinhoViewModel();
+
+            return View(carrinhoViewModel);
         }
     }
 }

@@ -50,3 +50,8 @@
     background-color: black;
     border-color: floralwhite;
 }
+
+.row-center {
+    display: flex;
+    align-items: center;
+}

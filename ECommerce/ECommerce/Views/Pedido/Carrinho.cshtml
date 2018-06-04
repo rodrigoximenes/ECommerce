@@ -11,10 +11,10 @@
             <div class="col-md-6">
                 Item
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
                 Preço Unitário
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center">
                 <span class="pull-right">
                     Quantidade
                 </span>
@@ -31,13 +31,13 @@
         @{
             foreach (var item in Model.Itens)
             {
-                <div class="row">
+                <div class="row row-center">
                     <div class="col-md-3">
                         <img src="~/images/camisa_@(item.Id).png" />
                     </div>
                     <div class="col-md-3">@item.Produto.Nome</div>
-                    <div class="col-md-2">@item.Produto.Preco</div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 text-center">@item.Produto.Preco</div>
+                    <div class="col-md-2 text-center">
                         <span class="pull-right">
                             @item.Quantidade
                         </span>
