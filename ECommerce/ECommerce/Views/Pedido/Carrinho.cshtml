@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Carrinho";
 }
-@model List<ItemPedido>
+@model ECommerce.Models.ViewModels.CarrinhoViewModel
 
 <h3>Meu Carrinho</h3>
 
@@ -29,7 +29,7 @@
     </div>
     <div class="panel-body">
         @{
-            foreach (var item in Model)
+            foreach (var item in Model.Itens)
             {
                 <div class="row">
                     <div class="col-md-3">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-2">
                         <span class="pull-right">
-                           R$ @item.SubTotal
+                            R$ @item.SubTotal
                         </span>
                     </div>
                 </div>
@@ -54,11 +54,11 @@
     <div class="panel-footer">
         <div class="row">
             <div class="col-md-10">
-                Total:
+                Total: @Model.Itens.Count() @(Model.Itens.Count() < 2 ? "item" : "itens")
             </div>
             <div class="col-md-2">
                 <span class="pull-right">
-                    R$ @Model.Sum(x => x.SubTotal)
+                    R$ @Model.Total
                 </span>
             </div>
         </div>

@@ -15,11 +15,11 @@
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/camisa_@(Model[i+1].Id).png" />
+                                <img src="~/images/camisa_@(Model[i].Id).png" />
                             </div>
                             <div class="panel-footer">
-                                <div>@(Model[i + 1].Nome)</div>
-                                <div>@(Model[i + 1].Preco)</div>
+                                <div>@(Model[i].Nome)</div>
+                                <div>@(Model[i].Preco)</div>
                                 <div class="text-center">
                                     <a asp-controller="pedido" asp-action="carrinho">Adicionar</a>
                                 </div>
@@ -32,16 +32,16 @@
         <!-- 2º slide -->
         <div class="item">
             <div class="row">
-                @for (int i = 4; i < 7; i++)
+                @for (int i = 3; i < 6; i++)
                 {
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/camisa_@(i).png" />
+                                <img src="~/images/camisa_@(Model[i].Id).png" />
                             </div>
                             <div class="panel-footer">
-                                <div>Produto @(i)</div>
-                                <div>R$ 159,90</div>
+                                <div>@(Model[i].Nome)</div>
+                                <div>@(Model[i].Preco)</div>
                                 <div class="text-center">
                                     <a asp-controller="pedido" asp-action="carrinho">Adicionar</a>
                                 </div>

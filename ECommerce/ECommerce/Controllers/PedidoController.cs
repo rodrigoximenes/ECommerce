@@ -1,4 +1,5 @@
 ﻿using ECommerce.Models;
+using ECommerce.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -31,7 +32,9 @@ namespace ECommerce.Controllers
 
         };
 
-            return View(itensCarrinho);
+            var carrinhoViewModel = new CarrinhoViewModel(itensCarrinho);
+
+            return View(carrinhoViewModel);
         }
 
         public IActionResult Cadastro()
