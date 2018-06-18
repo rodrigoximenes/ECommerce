@@ -20,7 +20,8 @@ namespace ECommerce
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ECommerce;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString =
+            Configuration.GetSection("ConnectionStrings").GetValue<string>("Default");
             services.AddDbContext<Contexto>(x => x.UseSqlServer(connectionString));
         }
 

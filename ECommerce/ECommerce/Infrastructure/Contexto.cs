@@ -11,5 +11,10 @@ namespace ECommerce.Infrastructure
     {
         public DbSet<Produto> ProdutosContext{ get; set; }
         public DbSet<ItemPedido> ItemPedidoContext { get; set; }
+
+        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        {
+            
+        }
     }
 }
