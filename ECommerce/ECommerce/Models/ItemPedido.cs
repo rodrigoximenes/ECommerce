@@ -30,5 +30,10 @@ namespace ECommerce.Models
             this.Quantidade = quantidade;
             this.PrecoUnitario = produto.Preco;
         }
+
+        public ItemPedido()
+        {
+
+        }
     }
 }

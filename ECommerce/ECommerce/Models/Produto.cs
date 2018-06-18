@@ -21,6 +21,11 @@ namespace ECommerce.Models
             this.Nome = nome;
             this.Preco = preco;
         }
+
+        public Produto()
+        {
+
+        }
     }
 
 }

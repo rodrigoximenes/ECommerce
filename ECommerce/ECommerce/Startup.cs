@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace ECommerce
 {
@@ -23,10 +24,12 @@ namespace ECommerce
             string connectionString =
             Configuration.GetSection("ConnectionStrings").GetValue<string>("Default");
             services.AddDbContext<Contexto>(x => x.UseSqlServer(connectionString));
+
+            services.AddTransient<IDataService, DataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider isp)
         {
             if (env.IsDevelopment())
             {
@@ -46,6 +49,10 @@ namespace ECommerce
                     name: "default",
                     template: "{controller=Pedido}/{action=Carrossel}/{id?}");
             });
+
+            IDataService dataService = isp.GetService<IDataService>();
+
+            dataService.InicializaDB();
         }
     }
 }
