@@ -16,6 +16,17 @@ namespace ECommerce
             this._contexto = contexto;
         }
 
+        public List<ItemPedido> GetItensPedido()
+        {
+            return this._contexto.ItemPedidoContext.ToList();
+        }
+
+        public List<Produto> GetProdutos()
+        {
+            return this._contexto.ProdutosContext.ToList();
+
+        }
+
         public void InicializaDB()
         {
             this._contexto.Database.EnsureCreated();

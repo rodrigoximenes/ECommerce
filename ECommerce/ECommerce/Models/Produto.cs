@@ -27,5 +27,4 @@ namespace ECommerce.Models
 
         }
     }
-
 }

@@ -7,18 +7,17 @@ namespace ECommerce.Controllers
 {
     public class PedidoController : Controller
     {
-        List<Produto> produtos = new List<Produto>
-           {
-                new Produto(1, "Alemanha", 159.90m),
-                new Produto( 2,"Croácia", 139.90m),
-                new Produto( 3,"Espanha", 149.90m ),
-                new Produto( 4,"Peru",    139.90m ),
-                new Produto( 5,"México", 149.90m),
-                new Produto( 6,"Suécia", 149.90m )
-            };
+
+        private readonly IDataService _dataService;
+
+        public PedidoController(IDataService dataService)
+        {
+            this._dataService = dataService; 
+        }
 
         public IActionResult Carrossel()
         {
+            List<Produto> produtos = _dataService.GetProdutos();
             return View(produtos);
         }
 
@@ -31,11 +30,9 @@ namespace ECommerce.Controllers
 
         private CarrinhoViewModel GetCarrinhoViewModel()
         {
-            var itensCarrinho = new List<ItemPedido>
-            {
-                new ItemPedido(1, produtos[0], 1),
-                new ItemPedido(2, produtos[1], 2)
-        };
+            List<Produto> produtos = this._dataService.GetProdutos();
+
+            var itensCarrinho = this._dataService.GetItensPedido();
 
             var carrinhoViewModel = new CarrinhoViewModel(itensCarrinho);
             return carrinhoViewModel;
